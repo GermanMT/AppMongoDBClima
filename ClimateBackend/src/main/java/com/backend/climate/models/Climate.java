@@ -14,12 +14,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Document(collection = "Climate")
-public class Climate implements Serializable{
+public class Climate{
     @Id
     @NotNull
     private String id;
 
     @NotNull
     private String type;
+
+    public Climate(String type) {
+        this.type = type;
+    }
 }
