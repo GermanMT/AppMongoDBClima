@@ -7,7 +7,7 @@ import { Info } from '../models/Info';
 })
 export class ServiceService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   url = 'http://localhost:9000/';
 
