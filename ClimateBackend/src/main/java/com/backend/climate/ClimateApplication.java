@@ -1,7 +1,7 @@
 package com.backend.climate;
 
 import com.backend.climate.models.Climate;
-import com.backend.climate.models.repository.ClimateRepository;
+import com.backend.climate.repository.ClimateRepository;
 
 import java.util.Arrays;
 

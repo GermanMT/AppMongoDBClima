@@ -1,4 +1,4 @@
-package com.backend.climate.models.repository;
+package com.backend.climate.repository;
 
 import com.backend.climate.models.Climate;
 
