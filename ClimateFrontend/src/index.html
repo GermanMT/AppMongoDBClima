@@ -1,14 +1,122 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>ClimateFrontend</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Climate</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="./assets/jquery-jvectormap-2.0.5.css" rel="stylesheet" type="text/css" media="screen"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="./assets/jquery-jvectormap-2.0.5.min.js"></script>
+    <script type="text/javascript" src="./assets/jquery-jvectormap-es-merc.js"></script>
+  </head>
+  <body>
+    <script>
+      $(function(){
+        var colors = {
+                'ES-NA': '#dbffaa',
+                'ES-B': '#dbffaa',
+                'ES-CS': '#dbffaa',
+                'ES-ZA': '#dbffaa',
+                'ES-O': '#dbffaa',
+                'ES-OR': '#dbffaa',
+                'ES-M': '#dbffaa',
+                'ES-L': '#dbffaa',
+                'ES-J': '#dbffaa',
+                'ES-H': '#dbffaa',
+                'ES-CU': '#dbffaa',
+                'ES-T': '#dbffaa',
+                'ES-C': '#dbffaa',
+                'ES-AV': '#dbffaa',
+                'ES-A': '#dbffaa',
+                'ES-CR': '#dbffaa',
+                'ES-CO': '#dbffaa',
+                'ES-VA': '#dbffaa',
+                'ES-TF': '#dbffaa',
+                'ES-Z': '#dbffaa',
+                'ES-MA': '#dbffaa',
+                'ES-AL': '#dbffaa',
+                'ES-CE': '#dbffaa',
+                'ES-PM': '#dbffaa',
+                'ES-VI': '#dbffaa',
+                'ES-S': '#dbffaa',
+                'ES-TE': '#dbffaa',
+                'ES-CC': '#dbffaa',
+                'ES-P': '#dbffaa',
+                'ES-PO': '#dbffaa',
+                'ES-GC': '#dbffaa',
+                'ES-GI': '#dbffaa',
+                'ES-TO': '#dbffaa',
+                'ES-MU': '#dbffaa',
+                'ES-GR': '#dbffaa',
+                'ES-GU': '#dbffaa',
+                'ES-AB': '#dbffaa',
+                'ES-SO': '#dbffaa',
+                'ES-ML': '#dbffaa',
+                'ES-LU': '#dbffaa',
+                'ES-SE': '#dbffaa',
+                'ES-CA': '#dbffaa',
+                'ES-SG': '#dbffaa',
+                'ES-BU': '#dbffaa',
+                'ES-SA': '#dbffaa',
+                'ES-V': '#dbffaa',
+                'ES-LE': '#dbffaa',
+                'ES-BI': '#dbffaa',
+                'ES-HU': '#dbffaa',
+                'ES-LO': '#dbffaa',
+                'ES-SS': '#dbffaa',
+                'ES-BA': '#dbffaa'
+        };
+        
+        map = new jvm.Map({
+          map: 'es_merc',
+          container: $('#es-map'),
+          backgroundColor: '#43afff',
+          series: {
+            regions: 
+            [{
+              attribute: 'fill'
+            }]
+          },
+          regionLabelStyle: {
+            initial: {
+              'font-size': '8',
+            },
+            hover: {
+              fill: 'white'
+            }
+          },
+          onRegionTipShow: function(e, el, code){ // al seleccionar una region se muestra el valor que tengan en el array
+            el.html(el.html()).css('height','25px').css('width', '100px');;
+          },
+          labels: {
+            regions: {
+              render: function(code){
+                return code.split('-')[1];
+              },
+              offsets: function(code){
+                return {
+                  'CA': [-10, 10],
+                  'ID': [0, 40],
+                  'OK': [25, 0],
+                  'LA': [-20, 0],
+                  'FL': [45, 0],
+                  'KY': [10, 5],
+                  'VA': [15, 5],
+                  'MI': [30, 30],
+                  'AK': [50, -25],
+                  'HI': [25, 50]
+                }[code.split('-')[1]];
+              }
+            }
+          }
+        });
+
+        map.series.regions[0].setValues(colors);
+      });
+    </script>
+    <app-root></app-root>
+  </body>
 </html>
