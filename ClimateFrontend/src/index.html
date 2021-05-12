@@ -91,6 +91,9 @@
           onRegionTipShow: function(e, el, code){ // al seleccionar una region se muestra el valor que tengan en el array
             el.html(el.html()).css('height','25px').css('width', '100px');;
           },
+          onRegionClick: function(event, code) {
+            window.location.href = "/show"
+          },
           labels: {
             regions: {
               render: function(code){
@@ -118,5 +121,6 @@
       });
     </script>
     <app-root></app-root>
+    <div id="es-map" class="border border-5" style="width: 100%; height: 500px"></div>
   </body>
 </html>
