@@ -6,11 +6,13 @@ import { ShowComponent } from './home/show/show.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
 import { HttpClientModule } from '@angular/common/http/';
+import { ListarComponent } from './provincia/listar/listar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShowComponent
+    ShowComponent,
+    ListarComponent
   ],
   imports: [
     BrowserModule,

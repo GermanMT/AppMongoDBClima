@@ -1,7 +1,19 @@
-
 <div class="container">
-  <button (click)="Show()" class="btn btn-outline-primary"> Clima en España </button>
+  <br>
+  <div class="toolbar" role="banner">
+    <img
+      width="40"
+      alt="Climate Logo"
+      src="favicon.ico"
+    />
+    <span>Bienvenido a Climate</span>
+  </div>
+  <br>
+  <button (click)="Listar()" class="btn btn-outline-primary"> Clima en España </button>
+  <br>
+  <br>
+  <p class="h6">Puedes ver el clima de una región en concreto clickando en ella</p>
+  <div id="es-map" class="border border-5" style="width: 100%; height: 450px"></div>
 </div>
-<br>
 
 <router-outlet></router-outlet>

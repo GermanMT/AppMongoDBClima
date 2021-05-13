@@ -8,9 +8,16 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'ClimateFrontend';
+  home = 'home';
 
   constructor(private router: Router) { }
 
+  // tslint:disable-next-line: typedef
+  Listar(){
+    this.router.navigate(['listar']);
+  }
+
+  // tslint:disable-next-line: typedef
   Show(){
     this.router.navigate(['show']);
   }

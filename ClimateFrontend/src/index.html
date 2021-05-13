@@ -14,128 +14,78 @@
   </head>
   <body>
     <script>
-      $(function(){
-        var colors = {
-                'ES-NA': '#dbffaa',
-                'ES-B': '#dbffaa',
-                'ES-CS': '#dbffaa',
-                'ES-ZA': '#dbffaa',
-                'ES-O': '#dbffaa',
-                'ES-OR': '#dbffaa',
-                'ES-M': '#dbffaa',
-                'ES-L': '#dbffaa',
-                'ES-J': '#dbffaa',
-                'ES-H': '#dbffaa',
-                'ES-CU': '#dbffaa',
-                'ES-T': '#dbffaa',
-                'ES-C': '#dbffaa',
-                'ES-AV': '#dbffaa',
-                'ES-A': '#dbffaa',
-                'ES-CR': '#dbffaa',
-                'ES-CO': '#dbffaa',
-                'ES-VA': '#dbffaa',
-                'ES-TF': '#dbffaa',
-                'ES-Z': '#dbffaa',
-                'ES-MA': '#dbffaa',
-                'ES-AL': '#dbffaa',
-                'ES-CE': '#dbffaa',
-                'ES-PM': '#dbffaa',
-                'ES-VI': '#dbffaa',
-                'ES-S': '#dbffaa',
-                'ES-TE': '#dbffaa',
-                'ES-CC': '#dbffaa',
-                'ES-P': '#dbffaa',
-                'ES-PO': '#dbffaa',
-                'ES-GC': '#dbffaa',
-                'ES-GI': '#dbffaa',
-                'ES-TO': '#dbffaa',
-                'ES-MU': '#dbffaa',
-                'ES-GR': '#dbffaa',
-                'ES-GU': '#dbffaa',
-                'ES-AB': '#dbffaa',
-                'ES-SO': '#dbffaa',
-                'ES-ML': '#dbffaa',
-                'ES-LU': '#dbffaa',
-                'ES-SE': '#dbffaa',
-                'ES-CA': '#dbffaa',
-                'ES-SG': '#dbffaa',
-                'ES-BU': '#dbffaa',
-                'ES-SA': '#dbffaa',
-                'ES-V': '#dbffaa',
-                'ES-LE': '#dbffaa',
-                'ES-BI': '#dbffaa',
-                'ES-HU': '#dbffaa',
-                'ES-LO': '#dbffaa',
-                'ES-SS': '#dbffaa',
-                'ES-BA': '#dbffaa'
-        };
+        $(function(){
+            var colors = {
+                'ES-Cataluña': '#dbffaa',
+                'ES-Andalucia': '#dbffaa',
+                'ES-Valencia': '#dbffaa',
+                'ES-Castilla la Mancha': '#dbffaa',
+                'ES-Castilla y Leon': '#dbffaa',
+                '': '#dbffaa',
+                'ES-Extremadura': '#dbffaa',
+                'ES-Galicia': '#dbffaa',
+                'ES-Asturias': '#dbffaa',
+                'ES-Cantabria': '#dbffaa',
+                'ES-Madrid': '#dbffaa',
+                'ES-Zaragoza': '#dbffaa',
+                'ES-Pais Vasco': '#dbffaa',
+                'ES-Navarra': '#dbffaa',
+                'ES-Murcia': '#dbffaa',
+                'ES-Baleares': '#dbffaa',
+                'ES-Islas Canarias': '#dbffaa',
+                'ES-La Rioja': '#dbffaa',
+            };
         
-        map = new jvm.Map({
-          map: 'es_merc',
-          container: $('#es-map'),
-          backgroundColor: '#43afff',
-          series: {
-            regions: 
-            [{
-              attribute: 'fill'
-            }]
-          },
-          regionLabelStyle: {
-            initial: {
-              'font-size': '8',
-            },
-            hover: {
-              fill: 'white'
-            }
-          },
-          onRegionTipShow: function(e, el, code){ // al seleccionar una region se muestra el valor que tengan en el array
-            el.html(el.html()).css('height','25px').css('width', '100px');;
-          },
-          onRegionClick: function(event, code) {
-            window.location.href = "/show"
-          },
-          labels: {
-            regions: {
-              render: function(code){
-                return code.split('-')[1];
-              },
-              offsets: function(code){
-                return {
-                  'CA': [-10, 10],
-                  'ID': [0, 40],
-                  'OK': [25, 0],
-                  'LA': [-20, 0],
-                  'FL': [45, 0],
-                  'KY': [10, 5],
-                  'VA': [15, 5],
-                  'MI': [30, 30],
-                  'AK': [50, -25],
-                  'HI': [25, 50]
-                }[code.split('-')[1]];
-              }
-            }
-          }
-        });
+            map = new jvm.Map({
+                map: 'es_merc',
+                container: $('#es-map'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){ // al seleccionar una region se muestra el valor que tengan en el array
+                    el.html(el.html()).css('height','25px').css('width', '100px');;
+                },
+                onRegionClick: function(event, code) {
+                    window.location.href = "/show/" + code
+                },
+                labels: {
+                    regions: {
+                        render: function(code){
+                            return code.split('-')[1];
+                        },
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
 
-        map.series.regions[0].setValues(colors);
-      });
+            map.series.regions[0].setValues(colors);
+        });
     </script>
-    <div class="container">
-      <div class="toolbar" role="banner">
-        <img
-          width="40"
-          alt="Climate Logo"
-          src="favicon.ico"
-        />
-        <span>Bienvenido a Climate</span>
-      </div>
-      <blockquote class="blockquote text-center"></blockquote>
-        <p class="h6">Puedes ver el clima de una región en concreto clickando en ella</p>
-      </blockquote>
-      <div id="es-map" class="border border-5" style="width: 100%; height: 450px"></div>
-      <br>
-      <p class="h6">O puedes ver el clima general en España</p>
-    </div>
     <app-root></app-root>
   </body>
 </html>
