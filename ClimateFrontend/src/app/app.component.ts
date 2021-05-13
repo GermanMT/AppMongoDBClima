@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,26 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'ClimateFrontend';
-  home = 'home';
+  x = 'mostrar';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private location: Location) { }
 
   // tslint:disable-next-line: typedef
   Listar(){
     this.router.navigate(['listar']);
+    this.x = 'ocultar';
   }
 
   // tslint:disable-next-line: typedef
   Show(){
     this.router.navigate(['show']);
+    this.x = 'ocultar';
+  }
+
+  // tslint:disable-next-line: typedef
+  Home() {
+    this.router.navigate(['']).then(() => {
+      window.location.reload();
+    });
   }
 }

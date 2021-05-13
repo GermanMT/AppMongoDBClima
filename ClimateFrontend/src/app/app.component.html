@@ -9,11 +9,14 @@
     <span>Bienvenido a Climate</span>
   </div>
   <br>
-  <button (click)="Listar()" class="btn btn-outline-primary"> Clima en España </button>
+  <div class="btn-group">
+    <button (click)="Listar()" class="btn btn-outline-primary"> Clima en España </button>
+    <button *ngIf="x == 'ocultar'" (click)="Home()" class="btn btn-outline-primary"> Home </button>
+  </div>
   <br>
   <br>
   <p class="h6">Puedes ver el clima de una región en concreto clickando en ella</p>
-  <div id="es-map" class="border border-5" style="width: 100%; height: 450px"></div>
+  <div *ngIf="x == 'mostrar'" id="es-map" class="border border-5" style="width: 100%; height: 450px"></div>
 </div>
 
 <router-outlet></router-outlet>
