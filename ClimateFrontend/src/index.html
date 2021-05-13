@@ -58,7 +58,9 @@
                     el.html(el.html()).css('height','25px').css('width', '130px');;
                 },
                 onRegionClick: function(event, code) {
-                    window.location.href = "/show/" + code
+                    if(code != ''){
+                        window.location.href = "/show/" + code
+                    }
                 },
                 labels: {
                     regions: {
