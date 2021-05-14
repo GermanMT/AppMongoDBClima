@@ -1,8 +1,5 @@
 package com.backend.climate.repository;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
