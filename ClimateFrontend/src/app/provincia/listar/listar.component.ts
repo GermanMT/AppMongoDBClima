@@ -12,6 +12,7 @@ export class ListarComponent implements OnInit {
 
   results!: Result[];
   constructor(private service: ServiceService, private router: Router) { }
+  x = 'ext';
 
   // tslint:disable-next-line: typedef
   ngOnInit() {

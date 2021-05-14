@@ -11,12 +11,12 @@
   <br>
   <div class="btn-group">
     <button (click)="Listar()" class="btn btn-outline-primary"> Clima en España </button>
-    <button *ngIf="x == 'ocultar'" (click)="Home()" class="btn btn-outline-primary"> Home </button>
+    <button *ngIf="x == 'no_home'" (click)="Home()" class="btn btn-outline-primary"> Home </button>
   </div>
   <br>
   <br>
-  <p class="h6">Puedes ver el clima de una región en concreto clickando en ella</p>
-  <div *ngIf="x == 'mostrar'" id="es-map" class="border border-5" style="width: 100%; height: 450px"></div>
+  <p *ngIf="x == 'home'" class="h6">Puedes ver el clima de cada comunidad autónoma clickando en ella: </p>
+  <div *ngIf="x == 'home'" id="es-map" class="border border-5" style="width: 100%; height: 450px"></div>
 </div>
 
 <router-outlet></router-outlet>

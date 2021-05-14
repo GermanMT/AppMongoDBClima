@@ -9,20 +9,20 @@ import { Location } from '@angular/common';
 })
 export class AppComponent {
   title = 'ClimateFrontend';
-  x = 'mostrar';
+  x = 'home';
 
   constructor(private router: Router, private location: Location) { }
 
   // tslint:disable-next-line: typedef
   Listar(){
     this.router.navigate(['listar']);
-    this.x = 'ocultar';
+    this.x = 'no_home';
   }
 
   // tslint:disable-next-line: typedef
   Show(){
     this.router.navigate(['show']);
-    this.x = 'ocultar';
+    this.x = 'no_home';
   }
 
   // tslint:disable-next-line: typedef
