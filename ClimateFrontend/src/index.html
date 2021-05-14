@@ -17,24 +17,26 @@
     <script>
         $(function(){
             var colors = {
-                'ES-Cataluña': '#dbffaa',
-                'ES-Andalucia': '#dbffaa',
-                'ES-Valencia': '#dbffaa',
-                'ES-Castilla la Mancha': '#dbffaa',
-                'ES-Castilla y Leon': '#dbffaa',
+                'Cataluña': '#dbffaa',
+                'Andalucia': '#dbffaa',
+                'Valencia': '#dbffaa',
+                'Castilla la Mancha': '#dbffaa',
+                'Castilla y Leon': '#dbffaa',
                 '': '#dbffaa',
-                'ES-Extremadura': '#dbffaa',
-                'ES-Galicia': '#dbffaa',
-                'ES-Asturias': '#dbffaa',
-                'ES-Cantabria': '#dbffaa',
-                'ES-Madrid': '#dbffaa',
-                'ES-Zaragoza': '#dbffaa',
-                'ES-Pais Vasco': '#dbffaa',
-                'ES-Navarra': '#dbffaa',
-                'ES-Murcia': '#dbffaa',
-                'ES-Baleares': '#dbffaa',
-                'ES-Islas Canarias': '#dbffaa',
-                'ES-La Rioja': '#dbffaa',
+                'Extremadura': '#dbffaa',
+                'Galicia': '#dbffaa',
+                'Asturias': '#dbffaa',
+                'Cantabria': '#dbffaa',
+                'Madrid': '#dbffaa',
+                'Zaragoza': '#dbffaa',
+                'Pais Vasco': '#dbffaa',
+                'Navarra': '#dbffaa',
+                'Murcia': '#dbffaa',
+                'Baleares': '#dbffaa',
+                'Islas Canarias': '#dbffaa',
+                'La Rioja': '#dbffaa',
+                'Ceuta': '#dbffaa',
+                'Melilla': '#dbffaa',
             };
         
             map = new jvm.Map({
@@ -60,14 +62,11 @@
                 },
                 onRegionClick: function(event, code) {
                     if(code != ''){
-                        window.location.href = "/show/" + code
+                        window.location.href = "show?code="+code
                     }
                 },
                 labels: {
                     regions: {
-                        render: function(code){
-                            return code.split('-')[1];
-                        },
                         offsets: function(code){
                             return {
                                 'CA': [-10, 10],
@@ -85,7 +84,7 @@
                     }
                 }
             });
-
+      
             map.series.regions[0].setValues(colors);
         });
         $(function(){
@@ -142,10 +141,10 @@
                     }
                 }
             });
-
+      
             map.series.regions[0].setValues(colors);
         });
-    </script>
+      </script>
     <app-root></app-root>
   </body>
 </html>

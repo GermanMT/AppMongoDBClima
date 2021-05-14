@@ -1,3 +1,5 @@
+import { Day } from 'src/app/models/Day';
+
 export class Result{
     queryCost!: number;
     latitude!: number;
@@ -7,4 +9,5 @@ export class Result{
     timezone!: string;
     tzoffset!: number;
     description!: string;
+    days!: Day[];
 }

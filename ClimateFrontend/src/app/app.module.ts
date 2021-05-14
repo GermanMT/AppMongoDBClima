@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShowComponent } from './home/show/show.component';
+import { ShowComponent } from './location/show/show.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
 import { HttpClientModule } from '@angular/common/http/';
-import { ListarComponent } from './provincia/listar/listar.component';
+import { ListarComponent } from './home/listar/listar.component';
 
 @NgModule({
   declarations: [

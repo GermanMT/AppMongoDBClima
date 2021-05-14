@@ -10,14 +10,18 @@ import { Result } from 'src/app/models/Result';
 })
 export class ShowComponent implements OnInit {
 
-  results!: Result[];
-  constructor(private service: ServiceService, private router: Router) { }
+  code!: any;
+  result!: Result;
+  constructor(private service: ServiceService, private router: Router ) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    this.service.getResults()
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('code');
+    this.code = myParam;
+    this.service.getResultsByProvince(this.code)
       .subscribe(data => {
-        this.results = data;
+        this.result = data;
       });
   }
 

@@ -20,12 +20,6 @@ export class AppComponent {
   }
 
   // tslint:disable-next-line: typedef
-  Show(){
-    this.router.navigate(['show']);
-    this.x = 'no_home';
-  }
-
-  // tslint:disable-next-line: typedef
   Home() {
     this.router.navigate(['']).then(() => {
       window.location.reload();
