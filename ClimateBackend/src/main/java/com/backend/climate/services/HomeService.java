@@ -48,8 +48,9 @@ public class HomeService {
 		} else {
 			res = restTemplate
 					.getForObject("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
-							+ address + "/" + date + "?key=" + apiKey, Result.class);
+							+ address + "?key=" + apiKey, Result.class);
 			this.resultRepository.save(res);
+
 		}
 		return res;
 	}

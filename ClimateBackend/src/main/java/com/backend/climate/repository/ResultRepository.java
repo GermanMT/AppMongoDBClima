@@ -15,5 +15,8 @@ public interface ResultRepository extends MongoRepository<Result,String> {
 	
 	@Query("{ 'address' : ?0, 'days.datetime': ?1}")
 	Result findByProvinceAndDay(String province, String day);
+	
+	@Query("{ 'address' : ?0}")
+	Result findByProvince(String province);
 
 }
