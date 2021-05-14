@@ -1,5 +1,15 @@
 <div class="container">
     <br>
+    <div *ngIf="code == 'Extremadura'" id="Extremadura" class="border border-5" style="width: 100%; height: 450px"></div>
+    <div *ngIf="code == 'Andalucia'" id="Andalucia" class="border border-5" style="width: 100%; height: 450px"></div>
+    <div *ngIf="code == 'Castilla la Mancha'" id="CastillaMancha" class="border border-5" style="width: 100%; height: 450px"></div>
+    <div *ngIf="code == 'Castilla y Leon'" id="CastillaLeon" class="border border-5" style="width: 100%; height: 450px"></div>
+    <div *ngIf="code == 'Galicia'" id="Galicia" class="border border-5" style="width: 100%; height: 450px"></div>
+    <div *ngIf="code == 'Pais Vasco'" id="Euskadi" class="border border-5" style="width: 100%; height: 450px"></div>
+    <div *ngIf="code == 'Aragon'" id="Aragon" class="border border-5" style="width: 100%; height: 450px"></div>
+    <div *ngIf="code == 'Cataluña'" id="Cataluña" class="border border-5" style="width: 100%; height: 450px"></div>
+    <div *ngIf="code == 'Comunidad Valenciana'" id="Valencia" class="border border-5" style="width: 100%; height: 450px"></div>
+    <br>
     <div class = "card-header">
         <h3>Datos del clima de {{code}} </h3>
     </div>
@@ -11,7 +21,7 @@
                     <th>Longitud</th>
                     <th>Direccion</th>
                     <th>Zona Horaria</th>
-                    <th>Descripcion</th>
+                    <th>Descripción</th>
                 </tr>
             </thead>
             <tbody>

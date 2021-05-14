@@ -10,8 +10,16 @@
     <link href="./assets/jquery-jvectormap-2.0.5.css" rel="stylesheet" type="text/css" media="screen"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="./assets/jquery-jvectormap-2.0.5.min.js"></script>
-    <script type="text/javascript" src="./assets/jquery-jvectormap-es-merc.js"></script>
-    <script type="text/javascript" src="./assets/jquery-jvectormap-es-extremadura.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-merc.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-extremadura.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-andalucia.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-castillamancha.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-castillaleon.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-galicia.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-euskadi.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-aragon.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-cataluña.js"></script>
+    <script type="text/javascript" src="./assets/maps/jquery-jvectormap-es-valencia.js"></script>
   </head>
   <body>
     <script>
@@ -19,7 +27,7 @@
             var colors = {
                 'Cataluña': '#dbffaa',
                 'Andalucia': '#dbffaa',
-                'Valencia': '#dbffaa',
+                'Comunidad Valenciana': '#dbffaa',
                 'Castilla la Mancha': '#dbffaa',
                 'Castilla y Leon': '#dbffaa',
                 '': '#dbffaa',
@@ -28,7 +36,7 @@
                 'Asturias': '#dbffaa',
                 'Cantabria': '#dbffaa',
                 'Madrid': '#dbffaa',
-                'Zaragoza': '#dbffaa',
+                'Aragon': '#dbffaa',
                 'Pais Vasco': '#dbffaa',
                 'Navarra': '#dbffaa',
                 'Murcia': '#dbffaa',
@@ -89,13 +97,13 @@
         });
         $(function(){
             var colors = {
-                'ES-Badajoz': '#dbffaa',
-                'ES-Caceres': '#dbffaa',
+                'Badajoz': '#dbffaa',
+                'Caceres': '#dbffaa',
             };
         
             map = new jvm.Map({
-                map: 'extremadura',
-                container: $('#extremadura'),
+                map: 'Extremadura',
+                container: $('#Extremadura'),
                 backgroundColor: '#43afff',
                 series: {
                     regions: 
@@ -116,14 +124,466 @@
                 },
                 onRegionClick: function(event, code) {
                     if(code != ''){
-                        window.location.href = "/show/" + code
+                        window.location.href = "show?code="+code
                     }
                 },
                 labels: {
                     regions: {
-                        render: function(code){
-                            return code.split('-')[1];
-                        },
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
+      
+            map.series.regions[0].setValues(colors);
+        });
+        $(function(){
+            var colors = {
+                'Toledo': '#dbffaa',
+                'Ciudad Real': '#dbffaa',
+                'Albacete': '#dbffaa',
+                'Cuenca': '#dbffaa',
+                'Guadalajara': '#dbffaa',
+            };
+        
+            map = new jvm.Map({
+                map: 'CastillaMancha',
+                container: $('#CastillaMancha'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){
+                    el.html(el.html()).css('height','25px').css('width', '130px');;
+                },
+                onRegionClick: function(event, code) {
+                    if(code != ''){
+                        window.location.href = "show?code="+code
+                    }
+                },
+                labels: {
+                    regions: {
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
+      
+            map.series.regions[0].setValues(colors);
+        });
+        $(function(){
+            var colors = {
+                'Huelva': '#dbffaa',
+                'Sevilla': '#dbffaa',
+                'Granada': '#dbffaa',
+                'Almeria': '#dbffaa',
+                'Jaen': '#dbffaa',
+                'Cordoba': '#dbffaa',
+                'Cadiz': '#dbffaa',
+                'Malaga': '#dbffaa',
+            };
+        
+            map = new jvm.Map({
+                map: 'Andalucia',
+                container: $('#Andalucia'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){
+                    el.html(el.html()).css('height','25px').css('width', '130px');;
+                },
+                onRegionClick: function(event, code) {
+                    if(code != ''){
+                        window.location.href = "show?code="+code
+                    }
+                },
+                labels: {
+                    regions: {
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
+      
+            map.series.regions[0].setValues(colors);
+        });
+        $(function(){
+            var colors = {
+                'Leon': '#dbffaa',
+                'Palencia': '#dbffaa',
+                'Soria': '#dbffaa',
+                'Burgos': '#dbffaa',
+                'Valladolid': '#dbffaa',
+                'Segovia': '#dbffaa',
+                'Avila': '#dbffaa',
+                'Salamanca': '#dbffaa',
+                'Zamora': '#dbffaa',
+            };
+        
+            map = new jvm.Map({
+                map: 'CastillaLeon',
+                container: $('#CastillaLeon'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){
+                    el.html(el.html()).css('height','25px').css('width', '130px');;
+                },
+                onRegionClick: function(event, code) {
+                    if(code != ''){
+                        window.location.href = "show?code="+code
+                    }
+                },
+                labels: {
+                    regions: {
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
+      
+            map.series.regions[0].setValues(colors);
+        });
+        $(function(){
+            var colors = {
+                'Vizcaya': '#dbffaa',
+                'Guipuzcoa': '#dbffaa',
+                'Alava': '#dbffaa',
+            };
+        
+            map = new jvm.Map({
+                map: 'Euskadi',
+                container: $('#Euskadi'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){
+                    el.html(el.html()).css('height','25px').css('width', '130px');;
+                },
+                onRegionClick: function(event, code) {
+                    if(code != ''){
+                        window.location.href = "show?code="+code
+                    }
+                },
+                labels: {
+                    regions: {
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
+      
+            map.series.regions[0].setValues(colors);
+        });
+        $(function(){
+            var colors = {
+                'Lugo': '#dbffaa',
+                'Pontevedra': '#dbffaa',
+                'A Coruña': '#dbffaa',
+                'Ourense': '#dbffaa',
+            };
+        
+            map = new jvm.Map({
+                map: 'Galicia',
+                container: $('#Galicia'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){
+                    el.html(el.html()).css('height','25px').css('width', '130px');;
+                },
+                onRegionClick: function(event, code) {
+                    if(code != ''){
+                        window.location.href = "show?code="+code
+                    }
+                },
+                labels: {
+                    regions: {
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
+      
+            map.series.regions[0].setValues(colors);
+        });
+        $(function(){
+            var colors = {
+                'Huesca': '#dbffaa',
+                'Zaragoza': '#dbffaa',
+                'Teruel': '#dbffaa',
+            };
+        
+            map = new jvm.Map({
+                map: 'Aragon',
+                container: $('#Aragon'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){
+                    el.html(el.html()).css('height','25px').css('width', '130px');;
+                },
+                onRegionClick: function(event, code) {
+                    if(code != ''){
+                        window.location.href = "show?code="+code
+                    }
+                },
+                labels: {
+                    regions: {
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
+      
+            map.series.regions[0].setValues(colors);
+        });
+        $(function(){
+            var colors = {
+                'Girona': '#dbffaa',
+                'Lleida': '#dbffaa',
+                'Barcelona': '#dbffaa',
+                'Tarragona': '#dbffaa',
+            };
+        
+            map = new jvm.Map({
+                map: 'Cataluña',
+                container: $('#Cataluña'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){
+                    el.html(el.html()).css('height','25px').css('width', '130px');;
+                },
+                onRegionClick: function(event, code) {
+                    if(code != ''){
+                        window.location.href = "show?code="+code
+                    }
+                },
+                labels: {
+                    regions: {
+                        offsets: function(code){
+                            return {
+                                'CA': [-10, 10],
+                                'ID': [0, 40],
+                                'OK': [25, 0],
+                                'LA': [-20, 0],
+                                'FL': [45, 0],
+                                'KY': [10, 5],
+                                'VA': [15, 5],
+                                'MI': [30, 30],
+                                'AK': [50, -25],
+                                'HI': [25, 50]
+                            }[code.split('-')[1]];
+                        }
+                    }
+                }
+            });
+      
+            map.series.regions[0].setValues(colors);
+        });
+        $(function(){
+            var colors = {
+                'Castellon': '#dbffaa',
+                'Valencia': '#dbffaa',
+                'Alicante': '#dbffaa',
+            };
+        
+            map = new jvm.Map({
+                map: 'Valencia',
+                container: $('#Valencia'),
+                backgroundColor: '#43afff',
+                series: {
+                    regions: 
+                    [{
+                        attribute: 'fill'
+                    }]
+                },
+                regionLabelStyle: {
+                    initial: {
+                        'font-size': '8',
+                    },
+                    hover: {
+                        fill: 'white'
+                    }
+                },
+                onRegionTipShow: function(e, el, code){
+                    el.html(el.html()).css('height','25px').css('width', '130px');;
+                },
+                onRegionClick: function(event, code) {
+                    if(code != ''){
+                        window.location.href = "show?code="+code
+                    }
+                },
+                labels: {
+                    regions: {
                         offsets: function(code){
                             return {
                                 'CA': [-10, 10],
