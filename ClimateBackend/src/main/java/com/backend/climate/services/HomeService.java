@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.backend.climate.models.Filter;
 import com.backend.climate.models.Result;
 import com.backend.climate.repository.ResultRepository;
 
@@ -49,10 +50,14 @@ public class HomeService {
 			res = restTemplate
 					.getForObject("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
 							+ address + "?key=" + apiKey, Result.class);
+			res.getDays().forEach(x->x.setTempmax(x.getTempmax() - 32));
+			res.getDays().forEach(x->x.setTempmin(x.getTempmin() - 32));
 			this.resultRepository.save(res);
 
 		}
 		return res;
 	}
+	
+	
 
 }

@@ -22,7 +22,7 @@ public class Day {
     private Double precip;
     private Double precipprob;
     private Object precipcover;
-    private Object preciptype;
+    private List<String> preciptype;
     private Double snow;
     private Double snowdepth;
     private Double windgust;
@@ -152,11 +152,11 @@ public class Day {
         this.precipcover = precipcover;
     }
 
-    public Object getPreciptype() {
+    public List<String> getPreciptype() {
         return preciptype;
     }
 
-    public void setPreciptype(Object preciptype) {
+    public void setPreciptype(List<String> preciptype) {
         this.preciptype = preciptype;
     }
 
