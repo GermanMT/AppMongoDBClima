@@ -29,7 +29,9 @@ public class HomeService {
 			"Cuenca", "Gerona", "Granada", "Guadalajara", "Guipúzcoa", "Huelva", "Huesca", "Islas Baleares", "Jaén",
 			"La Coruña", "La Rioja", "Las Palmas", "León", "Lérida", "Lugo", "Madrid", "Málaga", "Murcia", "Navarra",
 			"Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria",
-			"Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza");
+			"Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Cataluña","Andalucía",
+			"Comunidad Valenciana", "Castilla la Mancha", "Castilla y León", "Extremadura", "Galicia", "Aragón", "País Vasco",
+			"Ceuta", "Melilla");
 
 	public List<Result> fillHome() {
 		List<Result> list = new ArrayList<Result>();
