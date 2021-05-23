@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.backend.climate.models.Filter;
 import com.backend.climate.models.Result;
 import com.backend.climate.repository.ResultRepository;
 
